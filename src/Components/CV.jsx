@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function CurriculumVerite(props) {
   return (
-    <div className="flex justify-center bg-stratos-200 p-5">
-      <div className="flex h-full w-4/5 flex-col self-center bg-white text-stratos-900">
+    <div className="flex justify-center p-5 bg-stratos-200">
+      <div className="flex flex-col self-center w-4/5 h-full bg-white text-stratos-900">
         {/* RESUME INFORMATION */}
 
         <div className="flex self-center pt-12 text-4xl">
@@ -18,7 +18,7 @@ export default function CurriculumVerite(props) {
 
         {/* EMPLOYMENT */}
 
-        <div className="px-14 pt-5 text-2xl">Employment</div>
+        <div className="pt-5 text-2xl px-14">Employment</div>
         <div className="flex justify-between px-12 pt-5 text-2xl ">
           {props.employmentData.Company}
           <div className="flex justify-end px-12 text-lg ">
@@ -28,18 +28,18 @@ export default function CurriculumVerite(props) {
         <div className="flex justify-end px-24 pb-8 text-base ">
           {props.employmentData.Start}-{props.employmentData.End}
         </div>
-        <div className="flex justify-start px-14 pb-8 text-base ">
+        <div className="flex justify-start pb-8 text-base px-14 ">
           {props.employmentData.Description}
         </div>
 
         {/* EDUCATION */}
 
-        <div className="px-14 pb-5 text-2xl">Education</div>
-        <div className="flex justify-between px-14 text-xl">
+        <div className="pb-5 text-2xl px-14">Education</div>
+        <div className="flex justify-between text-xl px-14">
           {props.educationData.School}
-          <div className="flex px-14 text-lg">{props.educationData.Degree}</div>
+          <div className="flex text-lg px-14">{props.educationData.Degree}</div>
         </div>
-        <div className="flex justify-end px-28 pb-28 text-base">
+        <div className="flex justify-end text-base px-28 pb-28">
           {props.educationData.Graduation}
         </div>
       </div>
