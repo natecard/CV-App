@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Header(props) {
   return (
-    <div className="pb-3 text-center rounded-b bg-stratos-600 text-stratos-50 drop-shadow-xl">
+    <div className="pb-3 text-center rounded-b bg-stratos-200 text-stratos-900 drop-shadow-xl">
       <div className="">
         <div className="flex items-center justify-end pt-4 mx-9">
           <h3 className="mx-3">Write</h3>

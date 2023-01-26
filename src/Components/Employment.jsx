@@ -1,74 +1,83 @@
 import React from 'react';
 
 export default function Employment(props) {
-  return (
-    <div className="p-5">
-      <h1 className="py-4 text-2xl text-center">Employment History</h1>
-
-      <button
-        onClick={props.removeEmployment}
-        className="justify-center px-2 py-1 rounded ring-red-400 hover:ring-1"
-      >
-        Remove
-      </button>
-      <div className="flex items-center justify-center flex-grow ">
-        <label htmlFor="Company">Company: </label>
+  const employmentElements = props.employmentData.map((element, index) => (
+    <div key={element.id} className="" index={index}>
+      <div className="grid items-center justify-center grid-cols-6 grid-rows-4 text-center">
+        <label className="col-span-1" htmlFor="Company">
+          Company:{' '}
+        </label>
         <input
           name="Company"
           id="Company"
-          className="m-4 rounded focus:ring-stratos-500"
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
           type="text"
-          value={props.Company}
-          onChange={props.handleEmploymentChange}
+          value={props.employmentData[index].Company}
+          onChange={() => props.handleEmploymentChange(event, index)}
         />
-        <label htmlFor="Title">Job Title: </label>
-        <input
-          name="Title"
-          id="Title"
-          className="m-4 rounded focus:ring-stratos-500"
-          type="text"
-          value={props.Title}
-          onChange={props.handleEmploymentChange}
-        />
-        <label htmlFor="Start">Start Dates: </label>
+        <label className="col-span-1" htmlFor="Start">
+          Start Date:
+        </label>
         <input
           name="Start"
           id="Start"
-          className="m-4 rounded focus:ring-stratos-500"
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
           type="month"
-          value={props.Start}
-          onChange={props.handleEmploymentChange}
+          value={props.employmentData[index].Start}
+          onChange={() => props.handleEmploymentChange(event, index)}
         />
-        <label htmlFor="End">End Date: </label>
+        <label className="col-span-1 col-start-1" htmlFor="Title">
+          Job Title:
+        </label>
+        <input
+          name="Title"
+          id="Title"
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
+          type="text"
+          value={props.employmentData[index].Title}
+          onChange={() => props.handleEmploymentChange(event, index)}
+        />
+
+        <label className="col-span-1" htmlFor="End">
+          End Date:
+        </label>
         <input
           name="End"
           id="End"
-          className="m-4 rounded focus:ring-stratos-500"
-          value={props.End}
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
+          value={props.employmentData[index].End}
           type="month"
-          onChange={props.handleEmploymentChange}
+          onChange={() => props.handleEmploymentChange(event, index)}
         />
-      </div>
-      <div className="flex justify-center w-full">
-        <label className="mx-4 " htmlFor="Description">
+        <label className="col-start-1" htmlFor="Description">
           Description:
         </label>
         <textarea
           name="Description"
-          rows="5"
-          cols="25"
-          className=" w-3/6 rounded-lg border border-gray-300 p-2.5 text-sm text-stratos-900 focus:ring-stratos-500"
-          value={props.Description}
-          onChange={props.handleEmploymentChange}
+          className="col-span-4 row-span-2 mx-4 h-48 w-11/12 rounded-lg border border-gray-300 p-2.5 text-sm text-stratos-900 focus:ring-stratos-500"
+          value={props.employmentData[index].Description}
+          onChange={() => props.handleEmploymentChange(event, index)}
         ></textarea>
+        <button
+          onClick={() => props.removeEmployment(event, element.id)}
+          className="justify-center col-start-6 row-span-1 row-start-4 px-2 py-1 m-4 rounded hover:bg-red-200 hover:ring-2 hover:ring-red-500 hover:ring-offset-2"
+        >
+          Remove Employment
+        </button>
+        <button
+          onClick={() => props.createNewEmployment(event)}
+          className="justify-center col-start-6 row-start-3 px-2 py-1 m-4 rounded hover:bg-green-200 hover:ring-2 hover:ring-green-500"
+        >
+          Add Employment
+        </button>
       </div>
-
-      <button
-        onClick={props.createNewEmployment}
-        className="justify-center px-2 py-1 rounded ring-stratos-500 hover:ring-2"
-      >
-        Add Employment
-      </button>
+    </div>
+  ));
+  return (
+    <div className="p-5">
+      <h1 className="py-4 text-2xl text-center">Employment History</h1>
+      {employmentElements}
+      <div className="flex justify-center"></div>
     </div>
   );
 }

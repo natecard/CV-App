@@ -1,51 +1,62 @@
 import React from 'react';
 
 export default function Education(props) {
-  return (
-    <div className="p-5">
-      <h1 className="py-4 text-2xl text-center ">Educational History</h1>
-      <button
-        onClick={props.removeEducation}
-        className="justify-center px-2 py-1 rounded ring-red-400 ring-offset-2 hover:bg-red-500 hover:ring-1"
-      >
-        Remove
-      </button>
-      <div className="flex items-center justify-center flex-grow ">
+  const educationElements = props.educationData.map((element, index) => (
+    <div
+      key={element.id}
+      index={index}
+      // educationData={educationData}
+      className="p-5 bg-stone-300"
+    >
+      <div className="grid items-center justify-center grid-cols-6 grid-rows-2 text-center ">
         <label htmlFor="School">School: </label>
         <input
           name="School"
           id="School"
-          className="m-4 rounded focus:ring-stratos-500"
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
           type="text"
-          value={props.School}
-          onChange={props.handleEducationChange}
-        />
-        <label htmlFor="Degree">Degree: </label>
-        <input
-          name="Degree"
-          id="Degree"
-          className="m-4 rounded focus:ring-stratos-500"
-          type="text"
-          value={props.Degree}
-          onChange={props.handleEducationChange}
+          value={props.educationData[index].School}
+          onChange={() => props.handleEducationChange(event, index)}
         />
         <label htmlFor="Graduation">Graduation: </label>
         <input
           name="Graduation"
           id="Graduation"
-          className="m-4 rounded focus:ring-stratos-500"
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
           type="month"
-          value={props.Graduation}
-          onChange={props.handleEducationChange}
+          value={props.educationData[index].Graduation}
+          onChange={() => props.handleEducationChange(event, index)}
         />
-      </div>
+        <label htmlFor="Degree">Degree: </label>
+        <input
+          name="Degree"
+          id="Degree"
+          className="col-span-2 m-4 rounded focus:ring-stratos-500"
+          type="text"
+          value={props.educationData[index].Degree}
+          onChange={() => props.handleEducationChange(event, index)}
+        />
 
-      <button
-        onClick={props.createNewEducation}
-        className="justify-center px-2 py-1 rounded ring-stratos-500 hover:ring-2"
-      >
-        Add Education
-      </button>
+        <button
+          onClick={() => props.removeEducation(event, element.id)}
+          className="col-span-1 col-start-5 px-2 py-1 m-4 rounded hover:bg-red-200 hover:ring-2 hover:ring-red-500 hover:ring-offset-2"
+        >
+          Remove Education
+        </button>
+        <button
+          onClick={() => props.createNewEducation(event)}
+          className="justify-center px-2 py-1 m-4 rounded hover:bg-green-200 hover:ring-2 hover:ring-green-500"
+        >
+          Add Education
+        </button>
+      </div>
+    </div>
+  ));
+  return (
+    <div className=" bg-stone-300">
+      <h1 className="py-4 text-2xl text-center ">Educational History</h1>
+      {educationElements}
+      <div className="flex justify-center"></div>
     </div>
   );
 }

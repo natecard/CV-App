@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Information(props) {
   return (
-    <div className="p-5">
+    <div className="p-5 bg-stone-300 drop-shadow-2xl">
       <h1 className="py-4 text-2xl text-center">Personal Information</h1>
       <div className="flex items-center justify-center flex-grow ">
         <label htmlFor="Name">Name: </label>
@@ -12,7 +12,7 @@ export default function Information(props) {
           name="Name"
           id="Name"
           onChange={props.handleInfoChange}
-          value={props.Name}
+          value={props.formData.Name}
         />
         <label htmlFor="Email">E-mail: </label>
         <input
@@ -21,7 +21,7 @@ export default function Information(props) {
           id="Email"
           name="Email"
           onChange={props.handleInfoChange}
-          value={props.Email}
+          value={props.formData.Email}
         />
         <label htmlFor="Telephone">Phone Number: </label>
         <input
@@ -29,7 +29,7 @@ export default function Information(props) {
           id="Telephone"
           type="tel"
           name="Telephone"
-          value={props.Telephone}
+          value={props.formData.Telephone}
           onChange={props.handleInfoChange}
         />
       </div>
