@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function Header(props) {
   return (
-    <div className="pb-3 text-center rounded-b bg-stratos-200 text-stratos-900 drop-shadow-xl">
+    <div className="h-56 pb-3 text-center text-white bg-slate-900 drop-shadow-2xl">
       <div className="">
+        <h5 className="my-4 text-3xl">Welcome to</h5>
+        <h5 className="text-6xl">CV Builder</h5>
         <div className="flex items-center justify-end pt-4 mx-9">
           <h3 className="mx-3">Write</h3>
           <label className="relative inline-flex items-center cursor-pointer">
@@ -18,8 +20,6 @@ export default function Header(props) {
           </label>
           <h3 className="mx-3">Preview</h3>
         </div>
-        <h5 className="text-2xl">Welcome to</h5>
-        <h5 className="text-5xl">CV Builder</h5>
       </div>
     </div>
   );

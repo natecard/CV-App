@@ -140,7 +140,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-stratos-200">
+    <div className="flex flex-col h-full">
       <Header
         className=""
         preview={isPreview}
