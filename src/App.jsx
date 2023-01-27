@@ -3,6 +3,7 @@ import Education from './Components/Education';
 import Employment from './Components/Employment';
 import Header from './Components/Header';
 import CurriculumVerite from './Components/CV';
+import Footer from './Components/Footer';
 import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 
@@ -77,7 +78,6 @@ export default function App() {
   }, [infoData]);
 
   useEffect(() => {
-    console.log(educationData);
     localStorage.setItem('educationData', JSON.stringify(educationData));
   }, [educationData]);
 
@@ -178,6 +178,7 @@ export default function App() {
           />
         </div>
       )}
+      <Footer />
     </div>
   );
 }
